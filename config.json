@@ -1,0 +1,5 @@
+{
+  "deluge_url": "http://localhost:8112/json",
+  "deluge_pass": "E2V9JTA2dJ7F",
+  "mongo_url": "mongodb://localhost/node_torrent"
+}
