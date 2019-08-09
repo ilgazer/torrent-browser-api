@@ -10,15 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.2.2",
-    "koa": "^2.7.0",
-    "koa-body": "^4.1.0",
-    "koa-busboy": "^1.2.0",
-    "koa-multer": "^1.0.2",
-    "koa-router": "^7.4.0",
-    "mongodb": "latest",
-    "mongoose": "^5.6.8",
-    "request": "^2.88.0",
-    "minimist": "latest"
+    "koa": "latest",
+    "koa-router": "latest",
+    "minimist": "latest",
+    "mongoose": "4.13.19",
+    "request": "latest",
+    "koa-busboy": "latest"
   }
 }

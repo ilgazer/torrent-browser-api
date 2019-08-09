@@ -4,7 +4,6 @@ async function init() {
     const DelugeApi = require('./deluge_api');
     const MongoDao = require('./MongoDao');
 
-
     let config = require('minimist')(process.argv.slice(2));
     console.log(config);
 
@@ -20,7 +19,7 @@ async function init() {
     koa.use(router.routes());
     koa.use(router.allowedMethods());
 
-    koa.listen(3000);
+    koa.listen(config.port);
 }
 
-init().then(()=>console.log("Init complete"));
+init().then(() => console.log("Init complete"));
