@@ -13,7 +13,7 @@ async function init() {
     const dao = await MongoDao(config.mongo_url);
 
     require("./routes/basic")({router});
-    require("./routes/add_torrent")({router}, {delugeApi}, {dao});
+    require("./routes/add_torrent")({router}, {delugeApi}, {dao}, config.image_dir);
     require("./routes/list_torrents")({router}, {dao});
 
     koa.use(router.routes());

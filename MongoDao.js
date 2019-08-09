@@ -73,8 +73,7 @@ module.exports = async (url) => {
         },
 
         getTorrents: async (limit, continuation) => {
-            //console.log(continuation);
-            let torrents = await (continuation ? TorrentModel.find({
+            return await (continuation ? TorrentModel.find({
                     _id: {
                         "$lt": mongoose.Types.ObjectId(continuation)
                     }
@@ -84,18 +83,14 @@ module.exports = async (url) => {
                 .limit(limit)
                 .populate("files_tree")
                 .exec();
-            //console.log(torrents);
-            return torrents;
         },
 
         getTorrentById: async (id) => {
-            let torrents = await TorrentModel.find({
-                    _id: mongoose.Types.ObjectId(id)
-                })
+            return await TorrentModel.find({
+                _id: mongoose.Types.ObjectId(id)
+            })
                 .populate("files_tree")
                 .exec();
-            //console.log(torrents);
-            return torrents;
         }
     };
 };
