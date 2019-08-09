@@ -13,6 +13,7 @@
     "koa": "latest",
     "koa-busboy": "latest",
     "koa-router": "latest",
+    "koa2-cors": "^2.0.6",
     "minimist": "latest",
     "mongoose": "4.13.19",
     "move-file": "^1.2.0",
