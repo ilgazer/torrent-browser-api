@@ -11,10 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "koa": "latest",
+    "koa-busboy": "latest",
     "koa-router": "latest",
     "minimist": "latest",
     "mongoose": "4.13.19",
-    "request": "latest",
-    "koa-busboy": "latest"
+    "move-file": "^1.2.0",
+    "request": "latest"
   }
 }
