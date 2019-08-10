@@ -34,18 +34,17 @@ module.exports = function (url, password) {
     };
     delugeRequest("auth.login",
         [password]).then((json) => {
-        if (json.result)
+        if (json.result) {
             console.log("Login successful");
-        else
+            delugeRequest("web.connected", [])
+                .then(json => {
+                    if (!json.result) {
+                        delugeRequest("web.connect", ["50904235bf407124413e9548749e0ee0aa2eea76"])
+                    }
+                });
+        } else
             console.log("Login failed");
     });
-
-    delugeRequest("web.connected", [])
-        .then(json => {
-            if (!json.result) {
-                delugeRequest("web.connect",["50904235bf407124413e9548749e0ee0aa2eea76"])
-            }
-        });
 
     return {
         addTorrentFromFile: (filename) =>
