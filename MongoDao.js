@@ -16,14 +16,13 @@ module.exports = async (url) => {
     const TorrentModel = mongoose.model("Torrent", TorrentSchema);
 
     return {
-
         saveTorrent: (title, author, img, hash) => {
             let torrent = new TorrentModel({
                 _id: mongoose.Types.ObjectId(),
                 title: title,
                 author: author,
                 img: img, //filepath
-                info_hash:hash
+                info_hash: hash
             });
             torrent.save();
         },
@@ -37,16 +36,13 @@ module.exports = async (url) => {
             ) : TorrentModel.find())
                 .sort({_id: "descending"})
                 .limit(limit)
-                .populate("files_tree")
                 .exec();
         },
 
-        getTorrentById: async (id) => {
-            return await TorrentModel.find({
+        getTorrentById: (id) => {
+            return TorrentModel.find({
                 _id: mongoose.Types.ObjectId(id)
-            })
-                .populate("files_tree")
-                .exec();
+            }).exec();
         }
     };
 };

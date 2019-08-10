@@ -24,7 +24,7 @@ module.exports = function (url, password) {
                             return (typeof v === "object" || typeof v === "boolean" || isNaN(v)) ? v : parseInt(v, 10);
                         }
                     );
-                    if (!json.result || json.error !== null) {
+                    if (json.error !== null) {
                         reject("deluge_api request failed:\n" + JSON.stringify(json));
                     }
                     resolve(json);
@@ -38,8 +38,15 @@ module.exports = function (url, password) {
             console.log("Login successful");
         else
             console.log("Login failed");
-
     });
+
+    delugeRequest("web.connected", [])
+        .then(json => {
+            if (!json.result) {
+                delugeRequest("web.connect",["50904235bf407124413e9548749e0ee0aa2eea76"])
+            }
+        });
+
     return {
         addTorrentFromFile: (filename) =>
             delugeRequest("core.get_config_values",
