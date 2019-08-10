@@ -74,7 +74,9 @@ module.exports = function (url, password) {
                     }]])),
 
         getTorrentInfo: (filename) =>
-            delugeRequest("web.get_torrent_info", [filename])
+            delugeRequest("web.get_torrent_info", [filename]),
+        getTorrentFiles: (hash) =>
+            delugeRequest("web.get_torrent_files", [hash])
     };
 
 };
