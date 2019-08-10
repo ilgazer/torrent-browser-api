@@ -48,7 +48,7 @@ module.exports = async (url) => {
                 _id: mongoose.Types.ObjectId(),
                 name: folderName,
                 isFile: folder.type === "file",
-                path: folder.path,
+                path: folder.path?folder.path:folderName,
             });
             if (folder.contents) {
                 folderDoc.children = (parseTree(folder.contents));

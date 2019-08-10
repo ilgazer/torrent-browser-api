@@ -7,9 +7,12 @@ module.exports = ({router}, {delugeApi}, {dao}, image_dir) => {
                 .then((json) => dao.saveTorrent(ctx.request.body.title, ctx.request.body.author,
                     ctx.request.files[1].path.split("/").pop(), json.result.files_tree.contents))
                 .then(() => console.log("Add torrent to Mongo successful"),
-                    reason => console.log("Rejected promise on getTorrentInfo" + reason,ctx.request.files));
+                    reason => console.log("Rejected promise on getTorrentInfo" + reason, ctx.request.files));
             delugeApi.addTorrentFromFile(ctx.request.files[0].path)
-                .then(() => console.log("Add torrent to Deluge successful"),
+                .then(() => {
+                        console.log("Add torrent to Deluge successful");
+                        ctx.body = "Success."
+                    },
                     reason => console.log("Rejected promise on addTorrentFromFile" + reason));
         })
 };
