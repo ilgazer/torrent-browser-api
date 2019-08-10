@@ -18,6 +18,7 @@ module.exports = function (url, password) {
                 if (err) {
                     reject(err);
                 } else {
+                    console.log(body);
                     const json = JSON.parse(body,
                         function (k, v) {
                             return (typeof v === "object" || typeof v === "boolean" || isNaN(v)) ? v : parseInt(v, 10);
