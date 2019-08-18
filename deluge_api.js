@@ -83,7 +83,20 @@ module.exports = function (url, password) {
         getTorrentInfo: (filename) =>
             delugeRequest("web.get_torrent_info", [filename]),
         getTorrentFiles: (hash) =>
-            delugeRequest("web.get_torrent_files", [hash])
+            delugeRequest("web.get_torrent_files", [hash]),
+        makeTorrent: (target, tracker, destination = "") =>
+            delugeRequest("core.create_torrent", [
+                target,
+                tracker,
+                262144, //piece size (256KB)
+                "",
+                destination,
+                "",
+                true, //is private tracker
+                "",
+                "",
+                true //add to torrents
+            ]),
     };
 
 };

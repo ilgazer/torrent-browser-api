@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-busboy": "git+https://github.com/ilgazer/async-busboy#8d8e4deb5cbcea09e0f81974514b01945dfea431",
     "koa": "latest",
     "koa-busboy": "latest",
     "koa-router": "latest",
@@ -17,6 +18,7 @@
     "minimist": "latest",
     "mongoose": "4.13.19",
     "move-file": "^1.2.0",
-    "request": "latest"
+    "request": "latest",
+    "busboy": "latest"
   }
 }

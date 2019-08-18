@@ -16,6 +16,7 @@ async function init() {
     require("./routes/basic")({router});
     require("./routes/torrents")({router}, {delugeApi}, {dao}, config.image_dir);
     require("./routes/torrentFiles")({router}, {delugeApi});
+    require("./routes/makeTorrent")({router}, {delugeApi}, config.download_dir);
 
     koa.use(cors({
         origin: "*",
